@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chris Colosimo | Cloud & DevOps</title>
+  <title>Christopher Colosimo | DevOps & Cloud Operations</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Chris Colosimo - aspiring CloudOps / AWS engineer, learning in public.">
+  <meta name="description" content="Christopher Colosimo - student learning AWS, Linux, Terraform, and DevOps / Cloud Operations fundamentals.">
+  <!-- Classical-style fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050816;
-      --card-bg: #111827;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.3);
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.55);
+      --bg: #020617;
+      --bg-alt: #050816;
+      --panel: #050815;
+      --panel-alt: #0b1220;
+      --marble-dark: #0b1020;
+      --ink: #e5e7eb;
+      --ink-soft: #cbd5f5;
+      --ink-muted: #9ca3c7;
+      --accent: #e5b062;          /* warm gold */
+      --accent-deep: #c28a34;
+      --accent-soft: rgba(229, 176, 98, 0.12);
+      --border-strong: rgba(148, 163, 199, 0.6);
+      --border-soft: rgba(75, 85, 119, 0.7);
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.9);
+      --radius-card: 18px;
     }
 
     * {
@@ -26,10 +33,13 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 45%, #000 100%);
-      color: var(--text-main);
       min-height: 100vh;
+      font-family: "Crimson Text", Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(234, 179, 8, 0.13), transparent 60%),
+        linear-gradient(to bottom, var(--bg), #020617 40%, #000 100%);
       display: flex;
       justify-content: center;
       align-items: stretch;
@@ -38,56 +48,83 @@
 
     .page {
       width: 100%;
-      max-width: 960px;
+      max-width: 980px;
       margin: auto;
-      border-radius: 32px;
-      padding: 32px 24px;
-      background: radial-gradient(circle at top left, #020617, #020617 40%, #020617 70%, #000);
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #020617 100%);
+      border-radius: 26px;
+      padding: 28px 22px 24px;
+      border: 1px solid rgba(148, 163, 199, 0.45);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle “column” edges */
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      width: 7px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, rgba(248, 250, 252, 0.04), rgba(148, 163, 199, 0.55), rgba(15, 23, 42, 0.9));
+      opacity: 0.75;
+    }
+
+    .page::before {
+      left: 14px;
+    }
+
+    .page::after {
+      right: 14px;
     }
 
     header {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
+      padding: 6px 8px 18px;
+      border-bottom: 1px solid rgba(55, 65, 106, 0.8);
+    }
+
+    .title-block {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .title-block::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 6px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-deep));
+      box-shadow: 0 0 8px rgba(234, 179, 8, 0.45);
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
     }
 
     .title-block h1 {
+      font-family: "Playfair Display", "Times New Roman", serif;
       font-size: 28px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
       margin-bottom: 4px;
     }
 
     .title-block p {
       font-size: 14px;
-      color: var(--text-muted);
+      color: var(--ink-muted);
     }
 
     .links {
@@ -100,47 +137,51 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 8px 14px;
+      gap: 6px;
+      padding: 7px 14px;
       font-size: 13px;
+      font-family: "Crimson Text", Georgia, serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top, #020617, #020617 60%, #020617);
+      color: var(--ink);
       text-decoration: none;
-      background: rgba(15, 23, 42, 0.9);
-      transition: all 0.18s ease-out;
       cursor: pointer;
+      transition: all 0.15s ease-out;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #0ea5e9, #22c55e);
-      border-color: transparent;
-      color: #0b1120;
+      background: linear-gradient(to bottom, #facc6b, #d97706);
+      border-color: #facc6b;
+      color: #020617;
       font-weight: 600;
+      box-shadow: 0 8px 25px rgba(202, 138, 4, 0.55);
     }
 
     .btn:hover {
       transform: translateY(-1px);
-      border-color: rgba(148, 163, 184, 0.9);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.65);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+      border-color: var(--accent);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 32px rgba(250, 204, 21, 0.6);
     }
 
     main {
+      margin-top: 20px;
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 18px;
     }
 
     .card {
-      background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      box-shadow: var(--shadow-soft);
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #020617 100%);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(75, 85, 129, 0.9);
+      padding: 16px 16px 14px;
       position: relative;
       overflow: hidden;
     }
@@ -149,8 +190,10 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 55%);
-      opacity: 0.9;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(234, 179, 8, 0.16), transparent 60%);
+      opacity: 0.85;
       pointer-events: none;
     }
 
@@ -160,18 +203,314 @@
     }
 
     .card h2 {
+      font-family: "Playfair Display", "Times New Roman", serif;
       font-size: 15px;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .card h3 {
-      font-size: 16px;
+      color: var(--ink-muted);
       margin-bottom: 6px;
     }
 
+    .card h3 {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: var(--ink-soft);
+    }
+
     .card p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 199, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    .pill-strong {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: #fefce8;
+      font-weight: 600;
+    }
+
+    .list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .list li {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .list strong {
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    .laurel-divider {
+      margin: 10px 0 6px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .laurel-divider::before,
+    .laurel-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(250, 204, 21, 0.8));
+    }
+
+    .laurel-divider::after {
+      background: linear-gradient(to left, transparent, rgba(250, 204, 21, 0.8));
+    }
+
+    .projects {
+      margin-top: 6px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .project {
+      padding: 10px 11px;
+      border-radius: 14px;
+      border: 1px solid rgba(75, 85, 129, 0.9);
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
+    }
+
+    .project-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+
+    .project-title-row h3 {
+      font-size: 14px;
+      font-family: "Playfair Display", "Times New Roman", serif;
+      color: var(--ink-soft);
+    }
+
+    .project a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    .project p {
       font-size: 13px;
-      color: var(--text-muted)
+      margin-bottom: 6px;
+      color: var(--ink-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .project-tag {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 199, 0.8);
+      color: var(--ink-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .footnote {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--ink-muted);
+      border-top: 1px solid rgba(55, 65, 106, 0.9);
+      padding-top: 6px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 18px 10px;
+      }
+      .page {
+        padding: 20px 14px 18px;
+        border-radius: 22px;
+      }
+      .page::before,
+      .page::after {
+        display: none;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <div class="badge">
+          LEARNING IN PUBLIC · CLOUD OPERATIONS
+        </div>
+        <h1>Christopher Colosimo</h1>
+        <p>
+          Student learning AWS, Linux, and Terraform, working toward an entry-level Cloud Operations role.
+        </p>
+      </div>
+
+      <div class="links">
+        <a class="btn btn-primary" href="https://github.com/odysian" target="_blank" rel="noreferrer">
+          View GitHub
+        </a>
+        <a class="btn" href="mailto:c.colosimo@odysian.dev">
+          Email
+        </a>
+        <!-- When you're ready, update and uncomment:
+        <a class="btn" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        -->
+      </div>
+    </header>
+
+    <main>
+      <!-- ABOUT / CURRENT FOCUS -->
+      <section class="card">
+        <div class="card-inner">
+          <h2>ABOUT</h2>
+          <h3>Early in my Cloud journey</h3>
+          <p>
+            I’m an IT student learning how to run things in the cloud: AWS, Terraform, monitoring, 
+            and basic automation. My short-term goal is to land an entry-level Cloud Operations 
+            role and keep building from there.
+          </p>
+          <p>
+            Most of my learning comes from small labs where I set things up, break them on purpose, 
+            and then write down what I did to fix them.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill pill-strong">AWS · Terraform · CloudWatch</span>
+            <span class="pill">Linux &amp; Bash</span>
+            <span class="pill">Monitoring &amp; incidents</span>
+          </div>
+
+          <ul class="list">
+            <li><strong>Right now:</strong> Terraform, multi-environment setups, RDS/EC2 hardening, better monitoring</li>
+            <li><strong>Goal:</strong> Cloud Operations roles where I can keep learning on real systems</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="card">
+        <div class="card-inner">
+          <h2>PROJECTS</h2>
+
+          <div class="laurel-divider">WORK IN PROGRESS</div>
+
+          <div class="projects">
+            <article class="project">
+              <div class="project-title-row">
+                <h3>AWS CloudWatch Monitoring</h3>
+                <a href="https://github.com/odysian/aws-cloudwatch-monitoring" target="_blank" rel="noreferrer">
+                  REPOSITORY
+                </a>
+              </div>
+              <p>
+                A small 3-tier web app built directly in the AWS console with CloudWatch dashboards, alarms, 
+                and simple runbooks.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">EC2 · RDS · ALB</span>
+                <span class="project-tag">CloudWatch</span>
+                <span class="project-tag">Runbooks</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-title-row">
+                <h3>AWS Incident Response Lab</h3>
+                <a href="https://github.com/odysian/aws-incident-response" target="_blank" rel="noreferrer">
+                  REPOSITORY
+                </a>
+              </div>
+              <p>
+                Intentional break/fix scenarios where I cause problems on purpose and practice finding the issue, 
+                fixing it, and writing up what happened.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Troubleshooting</span>
+                <span class="project-tag">CloudWatch alarms</span>
+                <span class="project-tag">Post-incident notes</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="project-title-row">
+                <h3>AWS Terraform Infrastructure</h3>
+                <a href="https://github.com/odysian/aws-terraform-infrastructure" target="_blank" rel="noreferrer">
+                  REPOSITORY
+                </a>
+              </div>
+              <p>
+                Terraform version of my monitoring project: modules, remote state, dev/prod environments, 
+                Secrets Manager, and basic RDS hardening.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Terraform</span>
+                <span class="project-tag">S3 + DynamoDB state</span>
+                <span class="project-tag">Secrets Manager</span>
+                <span class="project-tag">RDS</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="footnote">
+            This page is a simple starting point. I’ll update it as I finish more labs, learn new tools, 
+            and move closer to that first Cloud Operations role.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
