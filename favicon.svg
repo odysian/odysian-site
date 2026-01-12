@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background matching portfolio -->
+  <rect width="32" height="32" fill="#0a0a0a" rx="6"/>
+  
+  <!-- White "C" - Inter Bold style, centered and readable at small sizes -->
+  <text 
+    x="16" 
+    y="23" 
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+    font-size="22" 
+    font-weight="700" 
+    fill="#ffffff" 
+    text-anchor="middle"
+  >C</text>
+</svg>
