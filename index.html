@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christopher Colosimo | Full-Stack Developer</title>
-  <meta name="description" content="Full-stack developer building production APIs with Python, FastAPI, React, and AWS. Seeking remote junior backend/full-stack positions.">
+  <title>Chris | Learning Backend Development</title>
+  <meta name="description" content="Learning backend development by building applications with Python, FastAPI, React, and AWS.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -148,7 +148,7 @@
     }
 
     .section-header {
-      margin-bottom: 40px;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -309,10 +309,10 @@
       align-items: center;
       gap: 6px;
       padding: 8px 16px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
+      background: var(--accent);
+      border: 1px solid var(--accent);
       border-radius: 6px;
-      color: var(--text-secondary);
+      color: #ffffff;
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
@@ -320,8 +320,9 @@
     }
 
     .project-link:hover {
-      color: var(--text-primary);
-      border-color: var(--text-muted);
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
     }
 
     .project-description {
@@ -431,7 +432,7 @@
 
       .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
       }
 
       .skills-grid {
@@ -448,15 +449,15 @@
       }
 
       section {
-        padding: 40px 0;
+        padding: 30px 0;
       }
 
       header {
-        padding: 40px 0 48px;
+        padding: 30px 0 48px;
       }
 
       footer {
-        padding: 40px 0;
+        padding: 30px 0;
       }
     }
   </style>
@@ -467,10 +468,10 @@
     <div class="container">
       <div class="header-content">
         <div class="header-text">
-          <div class="status-badge">🟢 Open to Opportunities</div>
-          <h1>Christopher Colosimo</h1>
+          <!-- <div class="status-badge">📚 Learning in Public</div> -->
+          <h1>Chris</h1>
           <p class="subtitle">
-            Building full-stack applications with Python, FastAPI, React, and AWS. Learning in public and looking for my first developer role.
+            Learning backend development by building applications with Python, FastAPI, React, and AWS.
           </p>
           <div class="header-links">
             <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -494,39 +495,33 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            I'm switching careers from landscaping to software development. Over the past 6 months, 
-            I've been learning by building—putting together full-stack applications, deploying them 
-            to AWS, and figuring out how to make things work in production. I've written APIs, set 
-            up databases, handled authentication, and learned Terraform to manage infrastructure as code.
+            I'm learning web development and building projects. I started about 
+            6 months ago, beginning with databases, Linux, and AWS basics, then moving into building 
+            applications.
           </p>
           <p>
-            Most of my learning has come from building projects and solving real problems. I've worked 
-            through 175+ algorithm problems on Codewars, deployed applications to AWS, and figured out 
-            how to implement features I'd never built before. I'm also taking database and programming 
-            courses at community college, though the hands-on project work has been where I've learned the most.
-          </p>
-          <p>
-            I'm looking for a junior full-stack or backend position where I can contribute to real 
-            systems and keep learning from experienced developers. I'm open to on-site or remote work.
+            Most of my learning has been self-taught, though I'm also working towards
+            an associate's degree in Programming & Development. Recently I've been focusing on adding
+            React and TypeScript frontends to my backend projects.
           </p>
         </div>
         <div class="quick-facts">
-          <h3>Quick Facts</h3>
+          <!-- <h3>Context</h3> -->
           <div class="fact">
             <div class="fact-label">Location</div>
             <div class="fact-value">Cleveland, Ohio</div>
           </div>
-          <div class="fact">
-            <div class="fact-label">Work Preference</div>
-            <div class="fact-value">On-site or Remote</div>
-          </div>
+          <!-- <div class="fact">
+            <div class="fact-label">Background</div>
+            <div class="fact-value">Landscaping</div>
+          </div> -->
           <div class="fact">
             <div class="fact-label">Education</div>
-            <div class="fact-value">Associate's in IT Programming (In Progress)</div>
+            <div class="fact-value">IT Programming @ Tri-C</div>
           </div>
           <div class="fact">
-            <div class="fact-label">Experience</div>
-            <div class="fact-value">6 Months Intensive Development</div>
+            <div class="fact-label">Learning Since</div>
+            <div class="fact-value">April 2025</div>
           </div>
         </div>
       </div>
@@ -539,7 +534,7 @@
       <div class="section-header">
         <h2>Skills</h2>
         <p class="section-description">
-          Technologies I've used in real projects and deployments. Still learning most of these, but I can work with them effectively.
+          Technologies I've been using.
         </p>
       </div>
       <div class="skills-grid">
@@ -593,9 +588,9 @@
   <section id="projects">
     <div class="container">
       <div class="section-header">
-        <h2>Featured Projects</h2>
+        <h2>Projects</h2>
         <p class="section-description">
-          Applications I've built and deployed. The backend and infrastructure work is where I spent most of my time.
+          Applications I've built.
         </p>
       </div>
       <div class="projects-grid">
@@ -619,20 +614,18 @@
             </div>
           </div>
           <p class="project-description">
-            Full-stack task management application with comprehensive features including authentication, 
-            file storage, and collaborative task sharing. Built the entire backend API, database design, 
-            caching strategy, and AWS deployment infrastructure with Terraform and CI/CD pipelines.
+            Task management app I built to learn full-stack development. Worked through building a REST API, 
+            implementing authentication, setting up a database with migrations, adding caching, and deploying 
+            everything to AWS with Terraform. First time deploying a full application to production.
           </p>
           <div class="project-features">
             <ul>
-              <li>JWT authentication with refresh tokens</li>
-              <li>RESTful API with comprehensive endpoints</li>
-              <li>PostgreSQL with Alembic migrations</li>
-              <li>Redis caching for performance</li>
-              <li>AWS S3 presigned URLs for file uploads</li>
-              <li>GitHub Actions CI/CD pipeline</li>
-              <li>Terraform infrastructure as code</li>
-              <li>Blue-green deployment strategy</li>
+              <li>JWT authentication</li>
+              <li>PostgreSQL with migrations</li>
+              <li>Redis caching</li>
+              <li>File uploads via S3</li>
+              <li>Deployed to AWS with Terraform</li>
+              <li>CI/CD pipeline</li>
             </ul>
           </div>
           <div class="project-tech">
@@ -642,8 +635,6 @@
             <span class="tech-badge">Redis</span>
             <span class="tech-badge">React</span>
             <span class="tech-badge">AWS</span>
-            <span class="tech-badge">Terraform</span>
-            <span class="tech-badge">Docker</span>
           </div>
         </div>
 
@@ -658,18 +649,17 @@
             </div>
           </div>
           <p class="project-description">
-            Real-time chat application with multi-room functionality and WebSocket-based communication. 
-            Built to understand persistent connections and real-time data flow, moving beyond traditional 
-            request-response patterns. Features room subscriptions, live messaging, and user presence tracking.
+            Real-time chat app I'm building to learn WebSockets. First time working with persistent 
+            connections instead of regular HTTP requests. Still figuring out how to manage multiple 
+            rooms and handle users disconnecting.
           </p>
           <div class="project-features">
             <ul>
-              <li>WebSocket connections for real-time messaging</li>
-              <li>Multi-room subscription pattern</li>
-              <li>Hybrid REST + WebSocket architecture</li>
-              <li>PostgreSQL for message persistence</li>
+              <li>Real-time messaging via WebSockets</li>
+              <li>Multi-room chat</li>
+              <li>PostgreSQL for messages</li>
               <li>JWT authentication</li>
-              <li>Docker containerization</li>
+              <li>Dockerized</li>
             </ul>
           </div>
           <div class="project-tech">
@@ -677,7 +667,6 @@
             <span class="tech-badge">FastAPI</span>
             <span class="tech-badge">WebSockets</span>
             <span class="tech-badge">PostgreSQL</span>
-            <span class="tech-badge">Docker</span>
           </div>
         </div>
       </div>
@@ -688,19 +677,19 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <h2>Let's Talk</h2>
-        <p>I'm looking for a junior full-stack or backend developer role. Open to on-site or remote work.</p>
+        <h2>Get in Touch</h2>
+        <p>Questions about my projects or want to chat about learning to code? Feel free to reach out.</p>
         <div class="footer-links">
           <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            View GitHub
+            GitHub
           </a>
           <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
-            Get in Touch
+            Email
           </a>
         </div>
       </div>
       <div class="copyright">
-        © 2026 Christopher Colosimo
+        © 2026 Odysian
       </div>
     </div>
   </footer>
