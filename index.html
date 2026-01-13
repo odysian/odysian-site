@@ -54,7 +54,7 @@
 
     /* Header */
     header {
-      padding: 60px 0 80px;
+      padding: 48px 0 64px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -86,6 +86,7 @@
       font-weight: 700;
       margin-bottom: 16px;
       letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
     .subtitle {
@@ -138,7 +139,7 @@
 
     /* Sections */
     section {
-      padding: 60px 0;
+      padding: 48px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -220,7 +221,7 @@
     /* Skills */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
 
@@ -373,7 +374,7 @@
 
     /* Footer */
     footer {
-      padding: 60px 0;
+      padding: 48px 0;
       text-align: center;
     }
 
@@ -404,9 +405,16 @@
     }
 
     /* Responsive */
+    @media (max-width: 900px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 36px;
+        line-height: 1.2;
       }
 
       .subtitle {
@@ -440,11 +448,15 @@
       }
 
       section {
-        padding: 48px 0;
+        padding: 40px 0;
       }
 
       header {
-        padding: 48px 0 60px;
+        padding: 40px 0 48px;
+      }
+
+      footer {
+        padding: 40px 0;
       }
     }
   </style>
@@ -467,9 +479,6 @@
             <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
               <span>Email</span>
             </a>
-            <!-- <a href="#" class="btn btn-secondary">
-              <span>Resume</span>
-            </a> -->
           </div>
         </div>
       </div>
@@ -485,16 +494,16 @@
       <div class="about-content">
         <div class="about-text">
           <p>
-            I'm switching careers from landscaping to software development. Over the past 5 months, 
-            I've been learning by building; putting together full-stack applications, deploying them 
+            I'm switching careers from landscaping to software development. Over the past 6 months, 
+            I've been learning by building—putting together full-stack applications, deploying them 
             to AWS, and figuring out how to make things work in production. I've written APIs, set 
             up databases, handled authentication, and learned Terraform to manage infrastructure as code.
           </p>
           <p>
-            I'm working through algorithms on Codewars (175+ problems so far), taking database and 
-            programming courses at community college, and building projects to strengthen my skills. 
-            I approach problems methodically, debug systematically, and research what I need to learn 
-            to implement solutions effectively.
+            Most of my learning has come from building projects and solving real problems. I've worked 
+            through 175+ algorithm problems on Codewars, deployed applications to AWS, and figured out 
+            how to implement features I'd never built before. I'm also taking database and programming 
+            courses at community college, though the hands-on project work has been where I've learned the most.
           </p>
           <p>
             I'm looking for a junior full-stack or backend position where I can contribute to real 
