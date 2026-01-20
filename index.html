@@ -1,697 +1,748 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chris | Learning Backend Development</title>
-  <meta name="description" content="Learning backend development by building applications with Python, FastAPI, React, and AWS.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chris | Learning Backend Development</title>
+    <meta
+      name="description"
+      content="Learning backend development by building applications with Python, FastAPI, React, and AWS."
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  
-  <!-- Modern fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-    :root {
-      --bg-primary: #0a0a0a;
-      --bg-secondary: #111111;
-      --bg-card: #161616;
-      --bg-card-hover: #1a1a1a;
-      --border: #2a2a2a;
-      --text-primary: #ffffff;
-      --text-secondary: #a1a1a1;
-      --text-muted: #737373;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
-      --accent-glow: rgba(59, 130, 246, 0.15);
-      --success: #10b981;
-      --success-glow: rgba(16, 185, 129, 0.15);
-    }
+    <!-- Modern fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header */
-    header {
-      padding: 48px 0 64px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    .header-text {
-      flex: 1;
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 6px 12px;
-      background: var(--success-glow);
-      border: 1px solid var(--success);
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--success);
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      max-width: 600px;
-    }
-
-    .header-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid var(--border);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-card);
-      transform: translateY(-1px);
-    }
-
-    /* Sections */
-    section {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section-header {
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-
-    .section-description {
-      font-size: 16px;
-      color: var(--text-secondary);
-      max-width: 700px;
-    }
-
-    /* About */
-    .about-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .quick-facts {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .quick-facts h3 {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .fact {
-      margin-bottom: 16px;
-    }
-
-    .fact:last-child {
-      margin-bottom: 0;
-    }
-
-    .fact-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .fact-value {
-      font-size: 15px;
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .skill-category {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .skill-category h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      padding: 6px 12px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text-secondary);
-    }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      gap: 40px;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      background: var(--bg-card-hover);
-      border-color: #3a3a3a;
-      transform: translateY(-2px);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
-      gap: 16px;
-    }
-
-    .project-title {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .project-icon {
-      font-size: 28px;
-      color: #10b981;
-      filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.9));
-    }
-
-    .project-links {
-      display: flex;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      background: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 6px;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .project-link:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    .project-description {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .project-features {
-      margin-bottom: 20px;
-    }
-
-    .project-features ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
-    }
-
-    .project-features li {
-      font-size: 14px;
-      color: var(--text-secondary);
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .project-features li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tech-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      padding: 4px 10px;
-      background: var(--accent-glow);
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      color: var(--accent);
-    }
-
-    /* Footer */
-    footer {
-      padding: 48px 0;
-      text-align: center;
-    }
-
-    .footer-content {
-      margin-bottom: 24px;
-    }
-
-    .footer-content h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .footer-content p {
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .copyright {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-        line-height: 1.2;
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .subtitle {
-        font-size: 18px;
+      :root {
+        --bg-primary: #0a0a0a;
+        --bg-secondary: #111111;
+        --bg-card: #161616;
+        --bg-card-hover: #1a1a1a;
+        --border: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1a1;
+        --text-muted: #737373;
+        --accent: #3b82f6;
+        --accent-hover: #2563eb;
+        --accent-glow: rgba(59, 130, 246, 0.15);
+        --success: #10b981;
+        --success-glow: rgba(16, 185, 129, 0.15);
       }
 
-      h2 {
-        font-size: 28px;
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        padding: 48px 0 64px;
+        border-bottom: 1px solid var(--border);
       }
 
       .header-content {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
       }
 
+      .header-text {
+        flex: 1;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--success-glow);
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--success);
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        font-size: 20px;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        max-width: 600px;
+      }
+
+      .header-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid var(--border);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-card);
+        transform: translateY(-1px);
+      }
+
+      /* Sections */
+      section {
+        padding: 48px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-header {
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .section-description {
+        font-size: 16px;
+        color: var(--text-secondary);
+        max-width: 700px;
+      }
+
+      /* About */
       .about-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        align-items: start;
       }
 
+      .about-text p {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+
+      .about-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .quick-facts {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .quick-facts h3 {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .fact {
+        margin-bottom: 16px;
+      }
+
+      .fact:last-child {
+        margin-bottom: 0;
+      }
+
+      .fact-label {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .fact-value {
+        font-size: 15px;
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      /* Skills */
       .skills-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .skill-category {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .skill-category h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        padding: 6px 12px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: var(--text-secondary);
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        gap: 40px;
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 32px;
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        background: var(--bg-card-hover);
+        border-color: #3a3a3a;
+        transform: translateY(-2px);
       }
 
       .project-header {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
         align-items: flex-start;
+        margin-bottom: 16px;
+        gap: 16px;
+      }
+
+      .project-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .project-icon {
+        font-size: 28px;
+        color: #10b981;
+        filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.9));
+      }
+
+      .project-links {
+        display: flex;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .project-link:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .project-description {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .project-features {
+        margin-bottom: 20px;
       }
 
       .project-features ul {
-        grid-template-columns: 1fr;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
       }
 
-      section {
-        padding: 30px 0;
+      .project-features li {
+        font-size: 14px;
+        color: var(--text-secondary);
+        padding-left: 20px;
+        position: relative;
       }
 
-      header {
-        padding: 30px 0 48px;
+      .project-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
       }
 
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tech-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        padding: 4px 10px;
+        background: var(--accent-glow);
+        border: 1px solid var(--accent);
+        border-radius: 4px;
+        color: var(--accent);
+      }
+
+      /* Footer */
       footer {
-        padding: 30px 0;
+        padding: 48px 0;
+        text-align: center;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="header-text">
-          <!-- <div class="status-badge">📚 Learning in Public</div> -->
-          <h1>Chris</h1>
-          <p class="subtitle">
-            Learning backend development by building applications with Python, FastAPI, React, and AWS.
-          </p>
-          <div class="header-links">
-            <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>GitHub</span>
-            </a>
-            <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
-              <span>Email</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <h2>About</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            I'm learning web development and building projects. I started about 
-            6 months ago, beginning with databases, Linux, and AWS basics, then moving into building 
-            applications.
-          </p>
-          <p>
-            Most of my learning has been self-taught, though I'm also working towards
-            an associate's degree in Programming & Development. Recently I've been focusing on adding
-            React and TypeScript frontends to my backend projects.
-          </p>
-        </div>
-        <div class="quick-facts">
-          <!-- <h3>Context</h3> -->
-          <div class="fact">
-            <div class="fact-label">Location</div>
-            <div class="fact-value">Cleveland, Ohio</div>
+      .footer-content {
+        margin-bottom: 24px;
+      }
+
+      .footer-content h2 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .footer-content p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 36px;
+          line-height: 1.2;
+        }
+
+        .subtitle {
+          font-size: 18px;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        .header-content {
+          flex-direction: column;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .project-features ul {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 30px 0;
+        }
+
+        header {
+          padding: 30px 0 48px;
+        }
+
+        footer {
+          padding: 30px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="header-text">
+            <!-- <div class="status-badge">📚 Learning in Public</div> -->
+            <h1>Chris</h1>
+            <p class="subtitle">
+              Learning backend development by building applications with Python,
+              FastAPI, React, and AWS.
+            </p>
+            <div class="header-links">
+              <a
+                href="https://github.com/odysian"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                <span>GitHub</span>
+              </a>
+              <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
+                <span>Email</span>
+              </a>
+            </div>
           </div>
-          <!-- <div class="fact">
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm learning web development and building projects. I started
+              about 6 months ago, beginning with databases, Linux, and AWS
+              basics, then moving into building applications.
+            </p>
+            <p>
+              Most of my learning has been self-taught, though I'm also working
+              towards an associate's degree in Programming & Development.
+              Recently I've been focusing on adding React and TypeScript
+              frontends to my backend projects.
+            </p>
+          </div>
+          <div class="quick-facts">
+            <!-- <h3>Context</h3> -->
+            <div class="fact">
+              <div class="fact-label">Location</div>
+              <div class="fact-value">Cleveland, Ohio</div>
+            </div>
+            <!-- <div class="fact">
             <div class="fact-label">Background</div>
             <div class="fact-value">Landscaping</div>
           </div> -->
-          <div class="fact">
-            <div class="fact-label">Education</div>
-            <div class="fact-value">IT Programming @ Tri-C</div>
-          </div>
-          <div class="fact">
-            <div class="fact-label">Learning Since</div>
-            <div class="fact-value">April 2025</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header">
-        <h2>Skills</h2>
-        <p class="section-description">
-          Technologies I've been using.
-        </p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">SQLAlchemy</span>
-            <span class="skill-tag">Alembic</span>
-            <span class="skill-tag">WebSockets</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">Vite</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>DevOps & Cloud</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">GitHub Actions</span>
-            <span class="skill-tag">Linux</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Tools & Practices</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">pytest</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">JWT Auth</span>
-            <span class="skill-tag">CI/CD</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2>Projects</h2>
-        <p class="section-description">
-          Applications I've built.
-        </p>
-      </div>
-      <div class="projects-grid">
-        <!-- FAROS Task Manager -->
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">
-              <span class="project-icon">⟡</span>
-              FAROS Task Manager
-            </h3>
-            <div class="project-links">
-              <a href="https://faros.odysian.dev" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span>Live Demo</span>
-              </a>
-              <a href="https://github.com/odysian/task-manager-api" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span>Backend</span>
-              </a>
-              <a href="https://github.com/odysian/task-manager-frontend" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span>Frontend</span>
-              </a>
+            <div class="fact">
+              <div class="fact-label">Education</div>
+              <div class="fact-value">IT Programming @ Tri-C</div>
+            </div>
+            <div class="fact">
+              <div class="fact-label">Learning Since</div>
+              <div class="fact-value">April 2025</div>
             </div>
           </div>
-          <p class="project-description">
-            Task management app I built to learn full-stack development. Worked through building a REST API, 
-            implementing authentication, setting up a database with migrations, adding caching, and deploying 
-            everything to AWS with Terraform. First time deploying a full application to production.
-          </p>
-          <div class="project-features">
-            <ul>
-              <li>JWT authentication</li>
-              <li>PostgreSQL with migrations</li>
-              <li>Redis caching</li>
-              <li>File uploads via S3</li>
-              <li>Deployed to AWS with Terraform</li>
-              <li>CI/CD pipeline</li>
-            </ul>
-          </div>
-          <div class="project-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">FastAPI</span>
-            <span class="tech-badge">PostgreSQL</span>
-            <span class="tech-badge">Redis</span>
-            <span class="tech-badge">React</span>
-            <span class="tech-badge">AWS</span>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Rostra Chat App -->
-        <div class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Rostra Chat App</h3>
-            <div class="project-links">
-              <a href="https://github.com/odysian/rostra-chat-app" target="_blank" rel="noopener noreferrer" class="project-link">
-                <span>GitHub</span>
-              </a>
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2>Skills</h2>
+          <p class="section-description">Technologies I've been using.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Backend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">SQLAlchemy</span>
+              <span class="skill-tag">Alembic</span>
+              <span class="skill-tag">WebSockets</span>
             </div>
           </div>
-          <p class="project-description">
-            Real-time chat app I'm building to learn WebSockets. First time working with persistent 
-            connections instead of regular HTTP requests. Still figuring out how to manage multiple 
-            rooms and handle users disconnecting.
-          </p>
-          <div class="project-features">
-            <ul>
-              <li>Real-time messaging via WebSockets</li>
-              <li>Multi-room chat</li>
-              <li>PostgreSQL for messages</li>
-              <li>JWT authentication</li>
-              <li>Dockerized</li>
-            </ul>
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Vite</span>
+            </div>
           </div>
-          <div class="project-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">FastAPI</span>
-            <span class="tech-badge">WebSockets</span>
-            <span class="tech-badge">PostgreSQL</span>
+          <div class="skill-category">
+            <h3>DevOps & Cloud</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Terraform</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Practices</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">pytest</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">JWT Auth</span>
+              <span class="skill-tag">CI/CD</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <h2>Get in Touch</h2>
-        <p>Questions about my projects or want to chat about learning to code? Feel free to reach out.</p>
-        <div class="footer-links">
-          <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            GitHub
-          </a>
-          <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
-            Email
-          </a>
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <p class="section-description">Applications I've built.</p>
+        </div>
+        <div class="projects-grid">
+          <!-- FAROS Task Manager -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">
+                <span class="project-icon">⟡</span>
+                FAROS Task Manager
+              </h3>
+              <div class="project-links">
+                <a
+                  href="https://faros.odysian.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>Live Demo</span>
+                </a>
+                <a
+                  href="https://github.com/odysian/task-manager-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>Backend</span>
+                </a>
+                <a
+                  href="https://github.com/odysian/task-manager-frontend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>Frontend</span>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">
+              Task management app I built to learn full-stack development.
+              Worked through building a REST API, implementing authentication,
+              setting up a database with migrations, adding caching, and
+              deploying everything to AWS with Terraform. First time deploying a
+              full application to production.
+            </p>
+            <div class="project-features">
+              <ul>
+                <li>JWT authentication</li>
+                <li>PostgreSQL with migrations</li>
+                <li>Redis caching</li>
+                <li>File uploads via S3</li>
+                <li>Deployed to AWS with Terraform</li>
+                <li>CI/CD pipeline</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Redis</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">AWS</span>
+            </div>
+          </div>
+
+          <!-- Rostra Chat App -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Rostra Chat App</h3>
+              <div class="project-links">
+                <a
+                  href="https://rostra.odysian.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>Live Demo</span>
+                </a>
+                <a
+                  href="https://github.com/odysian/rostra-chat-app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">
+              Real-time chat app I'm building to learn WebSockets. First time
+              working with persistent connections instead of regular HTTP
+              requests. Still figuring out how to manage multiple rooms and
+              handle users disconnecting.
+            </p>
+            <div class="project-features">
+              <ul>
+                <li>Real-time messaging via WebSockets</li>
+                <li>Multi-room chat</li>
+                <li>PostgreSQL for messages</li>
+                <li>JWT authentication</li>
+                <li>Dockerized</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">WebSockets</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="copyright">
-        © 2026 Odysian
+    </section>
+
+    <!-- Contact -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <h2>Get in Touch</h2>
+          <p>
+            Questions about my projects or want to chat about learning to code?
+            Feel free to reach out.
+          </p>
+          <div class="footer-links">
+            <a
+              href="https://github.com/odysian"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              GitHub
+            </a>
+            <a href="mailto:c.colosimo@odysian.dev" class="btn btn-secondary">
+              Email
+            </a>
+          </div>
+        </div>
+        <div class="copyright">© 2026 Odysian</div>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
