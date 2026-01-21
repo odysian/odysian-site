@@ -303,10 +303,23 @@
         gap: 8px;
       }
 
-      .project-icon {
+      .project-icon-faros {
         font-size: 28px;
         color: #10b981;
         filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.9));
+      }
+
+      /* Custom Project Card Themes */
+      #project-faros {
+        --accent: #10b981;
+        --accent-hover: #059669;
+        --accent-glow: rgba(16, 185, 129, 0.15);
+      }
+
+      #project-rostra {
+        --accent: #f59e0b;
+        --accent-hover: #d97706;
+        --accent-glow: rgba(245, 158, 11, 0.15);
       }
 
       .project-links {
@@ -366,6 +379,7 @@
         position: absolute;
         left: 0;
         color: var(--accent);
+        top: -3px;
       }
 
       .project-tech {
@@ -551,7 +565,6 @@
       <div class="container">
         <div class="section-header">
           <h2>Skills</h2>
-          <p class="section-description">Technologies I've been using.</p>
         </div>
         <div class="skills-grid">
           <div class="skill-category">
@@ -605,15 +618,14 @@
       <div class="container">
         <div class="section-header">
           <h2>Projects</h2>
-          <p class="section-description">Applications I've built.</p>
         </div>
         <div class="projects-grid">
           <!-- FAROS Task Manager -->
-          <div class="project-card">
+          <div id="project-faros" class="project-card">
             <div class="project-header">
               <h3 class="project-title">
-                <span class="project-icon">⟡</span>
-                FAROS Task Manager
+                <span class="project-icon-faros">⟡</span>
+                Faros Task Manager
               </h3>
               <div class="project-links">
                 <a
@@ -670,9 +682,16 @@
           </div>
 
           <!-- Rostra Chat App -->
-          <div class="project-card">
+          <div id="project-rostra" class="project-card">
             <div class="project-header">
-              <h3 class="project-title">Rostra Chat App</h3>
+              <h3 class="project-title">
+                <img
+                  src="rostra.svg"
+                  alt="R"
+                  style="height: 24px; width: auto"
+                />
+                Rostra Chat App
+              </h3>
               <div class="project-links">
                 <a
                   href="https://rostra.odysian.dev/"
