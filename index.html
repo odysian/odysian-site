@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chris | Learning Backend Development</title>
+    <title>Chris | Building Full-Stack Applications</title>
     <meta
       name="description"
-      content="Learning backend development by building applications with Python, FastAPI, React, and AWS."
+      content="Building full-stack applications with Python, FastAPI, React, and AWS."
     />
 
     <!-- Favicon -->
@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 
@@ -295,12 +295,37 @@
       }
 
       .project-title {
-        font-size: 24px;
-        font-weight: 600;
-        color: var(--text-primary);
         display: flex;
         align-items: center;
         gap: 8px;
+      }
+
+      .project-name {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
+      .project-name-faros {
+        font-family: "Inter", sans-serif;
+        font-weight: 900;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: -0.025em;
+      }
+
+      .project-name-quaero {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 40px;
+        color: #547bf3;
+      }
+
+      .project-name-rostra {
+        font-family: "Cinzel", Georgia, serif;
+        font-weight: 700;
+        color: #f59e0b;
+        letter-spacing: 0.02em;
       }
 
       .project-icon-faros {
@@ -320,6 +345,12 @@
         --accent: #f59e0b;
         --accent-hover: #d97706;
         --accent-glow: rgba(245, 158, 11, 0.15);
+      }
+
+      #project-quaero {
+        --accent: #547bf3;
+        --accent-hover: #395bea;
+        --accent-glow: rgba(84, 123, 243, 0.15);
       }
 
       .project-links {
@@ -496,8 +527,8 @@
             <!-- <div class="status-badge">📚 Learning in Public</div> -->
             <h1>Chris</h1>
             <p class="subtitle">
-              Learning backend development by building applications with Python,
-              FastAPI, React, and AWS.
+              Building full-stack applications with Python, FastAPI, React, and
+              AWS.
             </p>
             <div class="header-links">
               <a
@@ -527,14 +558,14 @@
           <div class="about-text">
             <p>
               I'm learning web development and building projects. I started
-              about 6 months ago, beginning with databases, Linux, and AWS
-              basics, then moving into building applications.
+              with databases, Linux, and AWS basics, then moved into building
+              applications in November 2025.
             </p>
             <p>
-              Most of my learning has been self-taught, though I'm also working
-              towards an associate's degree in Programming & Development.
-              Recently I've been focusing on adding React and TypeScript
-              frontends to my backend projects.
+              Most of my learning has been self-directed, and I'm working
+              towards an associate's degree in Programming & Development at
+              Tri-C. I learn by building complete systems, deploying them,
+              then picking a new set of problems for the next project.
             </p>
           </div>
           <div class="quick-facts">
@@ -552,8 +583,8 @@
               <div class="fact-value">IT Programming @ Tri-C</div>
             </div>
             <div class="fact">
-              <div class="fact-label">Learning Since</div>
-              <div class="fact-value">April 2025</div>
+              <div class="fact-label">Building Since</div>
+              <div class="fact-value">November 2025</div>
             </div>
           </div>
         </div>
@@ -573,6 +604,7 @@
               <span class="skill-tag">Python</span>
               <span class="skill-tag">FastAPI</span>
               <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">pgvector</span>
               <span class="skill-tag">Redis</span>
               <span class="skill-tag">SQLAlchemy</span>
               <span class="skill-tag">Alembic</span>
@@ -583,6 +615,7 @@
             <h3>Frontend</h3>
             <div class="skill-tags">
               <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.js</span>
               <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">Tailwind CSS</span>
@@ -625,7 +658,7 @@
             <div class="project-header">
               <h3 class="project-title">
                 <span class="project-icon-faros">⟡</span>
-                Faros Task Manager
+                <span class="project-name project-name-faros">Faros</span>
               </h3>
               <div class="project-links">
                 <a
@@ -655,18 +688,14 @@
               </div>
             </div>
             <p class="project-description">
-              Task management app I built to learn full-stack development.
-              Worked through building a REST API, implementing authentication,
-              setting up a database with migrations, adding caching, and
-              deploying everything to AWS with Terraform. First time deploying a
-              full application to production.
+              Task management app with collaborative features. Create tasks, add
+              comments, share with others via role-based permissions, and attach
+              files via S3. Includes filtering, search, and Redis caching.
             </p>
             <div class="project-features">
               <ul>
-                <li>JWT authentication</li>
-                <li>PostgreSQL with migrations</li>
-                <li>Redis caching</li>
                 <li>File uploads via S3</li>
+                <li>Redis caching</li>
                 <li>Deployed to AWS with Terraform</li>
                 <li>CI/CD pipeline</li>
               </ul>
@@ -677,7 +706,59 @@
               <span class="tech-badge">PostgreSQL</span>
               <span class="tech-badge">Redis</span>
               <span class="tech-badge">React</span>
+              <span class="tech-badge">JWT</span>
+              <span class="tech-badge">Docker</span>
               <span class="tech-badge">AWS</span>
+            </div>
+          </div>
+
+          <!-- Quaero Document Intelligence -->
+          <div id="project-quaero" class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">
+                <span class="project-name project-name-quaero">Quaero</span>
+              </h3>
+              <div class="project-links">
+                <a
+                  href="https://quaero.odysian.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>Live Demo</span>
+                </a>
+                <a
+                  href="https://github.com/odysian/vector-doc-qa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                >
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">
+              AI-powered document Q&A app using RAG (Retrieval Augmented
+              Generation). Upload PDFs, ask questions in natural language, and
+              get answers grounded in your documents with source citations.
+            </p>
+            <div class="project-features">
+              <ul>
+                <li>PDF upload and processing</li>
+                <li>RAG-powered Q&A</li>
+                <li>Source citations on every answer</li>
+                <li>Per-document chat history</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">pgvector</span>
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">JWT</span>
+              <span class="tech-badge">Docker</span>
             </div>
           </div>
 
@@ -685,12 +766,7 @@
           <div id="project-rostra" class="project-card">
             <div class="project-header">
               <h3 class="project-title">
-                <img
-                  src="rostra.svg"
-                  alt="R"
-                  style="height: 24px; width: auto"
-                />
-                Rostra Chat App
+                <span class="project-name project-name-rostra">Rostra</span>
               </h3>
               <div class="project-links">
                 <a
@@ -712,18 +788,16 @@
               </div>
             </div>
             <p class="project-description">
-              Real-time chat app I'm building to learn WebSockets. First time
-              working with persistent connections instead of regular HTTP
-              requests. Still figuring out how to manage multiple rooms and
-              handle users disconnecting.
+              Real-time chat app with WebSockets. Create and join rooms, send
+              instant messages, see who's online. Messages persist so
+              conversations stay available.
             </p>
             <div class="project-features">
               <ul>
                 <li>Real-time messaging via WebSockets</li>
                 <li>Multi-room chat</li>
-                <li>PostgreSQL for messages</li>
-                <li>JWT authentication</li>
-                <li>Dockerized</li>
+                <li>Persistent message history</li>
+                <li>Room creation and switching</li>
               </ul>
             </div>
             <div class="project-tech">
@@ -731,6 +805,10 @@
               <span class="tech-badge">FastAPI</span>
               <span class="tech-badge">WebSockets</span>
               <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">JWT</span>
+              <span class="tech-badge">Docker</span>
             </div>
           </div>
         </div>
