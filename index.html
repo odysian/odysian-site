@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
     rel="stylesheet" />
 
   <style>
@@ -244,10 +244,14 @@
     }
 
     .project-name-rostra {
-      font-family: "Cinzel", Georgia, serif;
-      font-weight: 700;
-      color: #f59e0b;
-      letter-spacing: 0.02em;
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+      letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #00f0ff, #ff00cc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .project-icon-faros {
@@ -264,10 +268,143 @@
     }
 
     #project-rostra {
-      --accent: #f59e0b;
-      --accent-hover: #d97706;
-      --accent-glow: rgba(245, 158, 11, 0.15);
+      --accent: #00f0ff;
+      --accent-hover: #27f3ff;
+      --accent-glow: rgba(0, 240, 255, 0.2);
+      --accent-2: #ff00cc;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(150% 130% at 0% 0%, rgba(0, 240, 255, 0.1), transparent 52%),
+        radial-gradient(140% 140% at 100% 0%, rgba(255, 0, 204, 0.1), transparent 56%),
+        #050508;
+      border: 1px solid rgba(0, 240, 255, 0.24);
+      box-shadow: inset 0 0 0 1px rgba(255, 0, 204, 0.14);
     }
+
+    #project-rostra:hover {
+      background:
+        radial-gradient(150% 130% at 0% 0%, rgba(0, 240, 255, 0.14), transparent 52%),
+        radial-gradient(140% 140% at 100% 0%, rgba(255, 0, 204, 0.14), transparent 56%),
+        #07070d;
+      border-color: rgba(0, 240, 255, 0.42);
+      box-shadow:
+        0 0 24px rgba(0, 240, 255, 0.14),
+        inset 0 0 0 1px rgba(255, 0, 204, 0.2);
+    }
+
+    #project-rostra::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(10, 16, 24, 0.44) 0px,
+          rgba(10, 16, 24, 0.44) 1px,
+          rgba(120, 180, 220, 0.08) 1px,
+          rgba(120, 180, 220, 0.08) 2px,
+          transparent 2px,
+          transparent 4px
+        );
+    }
+
+    #project-rostra:hover::after {
+      opacity: 0.36;
+    }
+
+    #project-rostra .project-link {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.12em;
+      font-size: 16px;
+      padding: 7px 14px 6px;
+      border-radius: 3px;
+      color: #00f0ff;
+      background: transparent;
+      border: 1px solid rgba(0, 240, 255, 0.5);
+    }
+
+    #project-rostra .project-link:hover {
+      color: #d9feff;
+      background: rgba(0, 240, 255, 0.13);
+      border-color: #00f0ff;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    }
+
+    #project-rostra .project-link:nth-child(2) {
+      color: #ff00cc;
+      border-color: rgba(255, 0, 204, 0.5);
+    }
+
+    #project-rostra .project-link:nth-child(2):hover {
+      color: #ffd1f3;
+      background: rgba(255, 0, 204, 0.14);
+      border-color: #ff00cc;
+      box-shadow: 0 0 10px rgba(255, 0, 204, 0.3);
+    }
+
+    #project-rostra .project-description {
+      font-family: "Share Tech Mono", monospace;
+      color: #d5d9ee;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    #project-rostra .project-features li {
+      font-family: "Share Tech Mono", monospace;
+      color: #c5c9df;
+      font-size: 14px;
+    }
+
+    #project-rostra .project-features ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #project-rostra .project-features li {
+      padding-left: 18px;
+      margin-bottom: 7px;
+      line-height: 1.62;
+      position: relative;
+    }
+
+    #project-rostra .project-features li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #00f0ff;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.35);
+    }
+
+    #project-rostra .tech-badge {
+      font-family: "Share Tech Mono", monospace;
+      font-size: 12px;
+      --rostra-badge-mix: 0%;
+      color: color-mix(
+        in srgb,
+        #00f0ff calc(100% - var(--rostra-badge-mix)),
+        #ff00cc var(--rostra-badge-mix)
+      );
+      background: color-mix(in srgb, currentColor 12%, transparent);
+      border: 1px solid color-mix(in srgb, currentColor 58%, transparent);
+      border-radius: 2px;
+    }
+
+    /* Progressive gradient across the badge group (left: cyan -> right: magenta). */
+    #project-rostra .tech-badge:nth-child(1) { --rostra-badge-mix: 0%; }
+    #project-rostra .tech-badge:nth-child(2) { --rostra-badge-mix: 11%; }
+    #project-rostra .tech-badge:nth-child(3) { --rostra-badge-mix: 22%; }
+    #project-rostra .tech-badge:nth-child(4) { --rostra-badge-mix: 33%; }
+    #project-rostra .tech-badge:nth-child(5) { --rostra-badge-mix: 44%; }
+    #project-rostra .tech-badge:nth-child(6) { --rostra-badge-mix: 56%; }
+    #project-rostra .tech-badge:nth-child(7) { --rostra-badge-mix: 67%; }
+    #project-rostra .tech-badge:nth-child(8) { --rostra-badge-mix: 78%; }
+    #project-rostra .tech-badge:nth-child(9) { --rostra-badge-mix: 89%; }
+    #project-rostra .tech-badge:nth-child(10) { --rostra-badge-mix: 100%; }
 
     #project-quaero {
       --accent: #547bf3;
@@ -314,25 +451,15 @@
     }
 
     .project-features ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
+      list-style: disc;
+      padding-left: 20px;
     }
 
     .project-features li {
       font-size: 14px;
       color: var(--text-secondary);
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .project-features li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      top: -3px;
+      line-height: 1.55;
+      margin-bottom: 7px;
     }
 
     .project-tech {
@@ -400,10 +527,6 @@
       .project-link {
         padding: 6px 10px;
         font-size: 13px;
-      }
-
-      .project-features ul {
-        grid-template-columns: 1fr;
       }
 
       section {
@@ -554,17 +677,20 @@
             </div>
           </div>
           <p class="project-description">
-            Built a real-time multi-room chat application using WebSocket
-            connections. Features include full-text message search using
-            PostgreSQL tsvector indexing, persistent message history, unread
-            tracking with Redis, and 90+ backend tests.
+            Built and redesigned a real-time multi-room chat application.
+            Features include WebSocket messaging, cursor-based history
+            pagination, room discovery and membership controls, full-text
+            message search, and Redis-backed unread tracking.
           </p>
           <div class="project-features">
             <ul>
-              <li>Real-time messaging via WebSockets</li>
-              <li>Full-text search with PostgreSQL tsvector indexing</li>
-              <li>Unread message tracking with Redis caching</li>
-              <li>90+ backend tests with real DB and transaction rollback</li>
+              <li>Real-time messaging, typing indicators, and online presence via WebSockets</li>
+              <li>JWT-based auth with Redis-backed rate limiting on API endpoints</li>
+              <li>Neon/Amber themes with an optional CRT visual mode</li>
+              <li>Multi-room discovery with join/leave workflows and membership-based access control</li>
+              <li>Infinite-scroll message history with cursor-based pagination</li>
+              <li>Full-text search with PostgreSQL tsvector + GIN indexing</li>
+              <li>Unread message counters cached in Redis with PostgreSQL fallback</li>
             </ul>
           </div>
           <div class="project-tech">
@@ -572,8 +698,10 @@
             <span class="tech-badge">FastAPI</span>
             <span class="tech-badge">WebSockets</span>
             <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Redis</span>
             <span class="tech-badge">React</span>
             <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Vite</span>
             <span class="tech-badge">JWT</span>
             <span class="tech-badge">Docker</span>
           </div>
