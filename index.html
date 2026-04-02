@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chris Colosimo | Building Full-Stack Applications</title>
-  <meta name="description" content="Building full-stack applications with Python, FastAPI, React, and AWS." />
+  <title>Chris Colosimo | Programming &amp; Development</title>
+  <meta name="description"
+    content="Tri-C Programming &amp; Development student building web applications with FastAPI, PostgreSQL, React, Redis, and Terraform." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -60,49 +61,68 @@
       padding: 0 24px;
     }
 
-    /* Header */
+    /* Header / hero */
     header {
-      padding: 48px 0 40px;
+      padding: 48px 0 44px;
       border-bottom: 1px solid var(--border);
     }
 
-    h1 {
+    .hero-inner {
+      max-width: 40rem;
+    }
+
+    .hero-name {
       font-size: 48px;
       font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      color: var(--text-primary);
     }
 
-    .header-about {
+    .hero-position {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.012em;
+      color: var(--text-primary);
+      margin: 0 0 20px;
+      max-width: 34em;
+    }
+
+    .hero-support {
       font-size: 15px;
+      font-weight: 400;
       color: var(--text-secondary);
       line-height: 1.7;
-      margin-bottom: 20px;
-      max-width: 680px;
+      margin: 0 0 22px;
+      max-width: 33.5rem;
     }
 
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .header-links a {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .header-links a:hover {
-      color: var(--accent-hover);
-    }
-
-    .link-sep {
-      color: var(--text-muted);
+    .hero-links {
       font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .hero-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(161, 161, 161, 0.25);
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .hero-links a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .hero-links-sep {
+      color: var(--text-muted);
+      user-select: none;
     }
 
     /* Sections */
@@ -132,60 +152,101 @@
       max-width: 700px;
     }
 
-    /* Skills */
-    .skills-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    /* Page closing (How I Build, skills, CTA) */
+    #closing {
+      padding: 48px 0 44px;
     }
 
-    .skill-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      min-height: 32px;
+    .closing-block {
+      margin-bottom: 48px;
+      max-width: 38rem;
     }
 
-    .skill-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      min-width: 120px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
+    .closing-block:first-child {
+      margin-bottom: 52px;
+    }
+
+    #closing .closing-block:last-child {
+      margin-bottom: 0;
+    }
+
+    #closing h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 0;
+      letter-spacing: -0.02em;
       line-height: 1.2;
+    }
+
+    .closing-prose {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.74;
+      margin: 16px 0 0;
+    }
+
+    .selected-skills-rows {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .selected-skill-row {
+      display: grid;
+      grid-template-columns: 9.75rem 1fr;
+      gap: 10px 28px;
+      align-items: baseline;
+      font-size: 14px;
+      line-height: 1.58;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.9);
+    }
+
+    .selected-skill-row:first-child {
       padding-top: 4px;
     }
 
-    .label-note {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--text-muted);
-      opacity: 0.7;
-      margin-top: 2px;
+    .selected-skill-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-tag {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 13px;
-      padding: 4px 10px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text-secondary);
-    }
-
-    .skills-footnote {
+    .selected-skill-cat {
+      font-weight: 500;
       font-size: 12px;
+      color: rgba(98, 98, 98, 0.95);
+      letter-spacing: 0.02em;
+    }
+
+    .selected-skill-items {
+      color: #b0b0b0;
+    }
+
+    .closing-links {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 18px 0 0;
+      line-height: 1.5;
+    }
+
+    .closing-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(161, 161, 161, 0.25);
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .closing-links a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .closing-links-sep {
       color: var(--text-muted);
-      margin-top: 12px;
+      user-select: none;
     }
 
     /* Projects */
@@ -786,67 +847,205 @@
 
     /* Footer */
     footer {
-      padding: 24px 0;
+      padding: 18px 0 28px;
       border-top: 1px solid var(--border);
     }
 
-    .footer-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
+    .footer-note {
+      font-size: 10px;
+      color: #5a5a5a;
+      line-height: 1.5;
+      margin: 0;
+      opacity: 0.82;
     }
 
-    .footer-text a {
-      color: var(--text-secondary);
-      text-decoration: none;
+    .footer-note a {
+      color: #5a5a5a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(90, 90, 90, 0.45);
+      transition: color 0.15s ease;
     }
 
-    .footer-text a:hover {
-      color: var(--text-primary);
+    .footer-note a:hover {
+      color: #8a8a8a;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-        line-height: 1.2;
+      header {
+        padding: 22px 0 16px;
+      }
+
+      .hero-name {
+        font-size: 30px;
+        letter-spacing: -0.03em;
+        margin-bottom: 6px;
+        line-height: 1.08;
+      }
+
+      .hero-position {
+        font-size: 15px;
+        margin-bottom: 10px;
+        line-height: 1.42;
+        letter-spacing: -0.01em;
+      }
+
+      .hero-support {
+        font-size: 14px;
+        line-height: 1.62;
+        margin-bottom: 12px;
+        max-width: none;
+      }
+
+      .hero-links {
+        font-size: 13px;
+        line-height: 1.45;
       }
 
       h2 {
         font-size: 28px;
+        margin-bottom: 10px;
       }
 
-      .skill-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .skill-label {
-        min-width: unset;
+      .project-card {
+        padding: 26px 22px 28px;
       }
 
       .project-header {
-        flex-direction: column;
+        position: relative;
+        display: block;
+        margin-bottom: 18px;
+        padding-right: 8.125rem;
+        padding-top: 2px;
+        /* Reserve vertical space for two stacked tap targets + gap so body copy clears the action zone */
+        min-height: calc(44px + 10px + 44px);
+      }
+
+      .project-title {
         align-items: flex-start;
+        max-width: 100%;
+      }
+
+      .project-links {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: 7.35rem;
       }
 
       .project-link {
-        padding: 6px 10px;
+        justify-content: center;
+        text-align: center;
+        min-height: 44px;
+        padding: 8px 8px;
         font-size: 13px;
+        line-height: 1.2;
       }
 
       #project-stima .project-link:nth-child(1),
       #project-stima .project-link:nth-child(2) {
-        padding: 8px 14px;
+        min-height: 44px;
+        padding: 8px 8px;
         font-size: 13px;
+      }
+
+      #project-quaero .project-link,
+      #project-rostra .project-link,
+      #project-faros .project-link {
+        min-height: 44px;
+        padding: 8px 8px;
+        font-size: 13px;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .project-description {
+        margin-top: 2px;
+        margin-bottom: 16px;
+      }
+
+      .project-features {
+        margin-bottom: 16px;
       }
 
       section {
         padding: 30px 0;
       }
 
-      header {
-        padding: 30px 0 32px;
+      section#projects {
+        padding-top: 18px;
+      }
+
+      section#projects .section-header {
+        margin-bottom: 8px;
+      }
+
+      #closing h2 {
+        font-size: 22px;
+      }
+
+      .closing-block {
+        margin-bottom: 36px;
+        max-width: none;
+      }
+
+      .closing-block:first-child {
+        margin-bottom: 40px;
+      }
+
+      .closing-prose {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-top: 12px;
+      }
+
+      .selected-skills-rows {
+        margin-top: 16px;
+      }
+
+      .selected-skill-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 14px 0;
+      }
+
+      .selected-skill-row:first-child {
+        padding-top: 2px;
+      }
+
+      .selected-skill-cat {
+        font-size: 11px;
+      }
+
+      .selected-skill-items {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .closing-links {
+        font-size: 13px;
+        margin-top: 16px;
+      }
+
+      section#closing {
+        padding-top: 32px;
+        padding-bottom: 30px;
+      }
+
+      footer {
+        padding: 12px 0 22px;
+      }
+
+      .footer-note {
+        font-size: 10px;
+        opacity: 0.78;
       }
     }
   </style>
@@ -856,24 +1055,21 @@
   <!-- Header -->
   <header>
     <div class="container">
-      <h1>Chris Colosimo</h1>
-      <p class="header-about">
-        IT Programming & Development student at Tri-C with experience building
-        and deploying full-stack web applications. I focus on Python backend
-        development with FastAPI and PostgreSQL, and have practical AWS/GCP
-        infrastructure and Terraform experience from deploying production
-        applications. Developed a structured agentic development workflow with
-        architecture-first specs, GitHub Issues for execution control, and
-        agent review passes before merge, used across these projects.
-        Actively seeking web development and software engineering internships
-        in the Cleveland area and remote.
-      </p>
-      <div class="header-links">
-        <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="link-sep">/</span>
-        <a href="mailto:c.colosimo@odysian.dev">Email</a>
-        <span class="link-sep">/</span>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      <div class="hero-inner">
+        <h1 class="hero-name">Chris Colosimo</h1>
+        <p class="hero-position">
+          Building and deploying full-stack web applications with Python, AI, and product-focused design.
+        </p>
+        <p class="hero-support">
+          Programming &amp; Development student at Tri-C building web applications with FastAPI, PostgreSQL, React,
+          Redis, and Terraform. Recent work spans realtime systems, AI-powered workflows, and business-focused
+          software for real user needs. Seeking software engineering internships in Cleveland or remote.
+        </p>
+        <p class="hero-links">
+          <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer">GitHub</a><span
+            class="hero-links-sep"> / </span><a href="mailto:c.colosimo@odysian.dev">Email</a><span
+            class="hero-links-sep"> / </span><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </p>
       </div>
     </div>
   </header>
@@ -904,35 +1100,24 @@
             </div>
           </div>
           <p class="project-description">
-            Mobile-first quote drafting platform for solo tradespeople. Capture
-            job details by voice, structure them with AI, review editable line
-            items, and generate professional PDF quotes.
+            Mobile-first quote drafting platform for solo tradespeople that turns voice input into structured,
+            reviewable, client-ready quotes.
           </p>
           <div class="project-features">
             <ul>
               <li>
-                Browser-based audio capture with backend normalization for
-                field-friendly quote intake
+                Browser-based audio capture with AI-assisted extraction into structured quote data
               </li>
               <li>
-                Whisper transcription and Claude-powered extraction into
-                structured quote data
+                Review flow for editing line items, totals, and confidence notes before export
               </li>
               <li>
-                Review and edit flow for line items, totals, and confidence
-                notes before export
-              </li>
-              <li>
-                Professional PDF quote generation using WeasyPrint and Jinja2
-              </li>
-              <li>
-                Combines multimodal input, AI-assisted structuring, and polished document output in one workflow
+                Professional PDF quote generation built around a real contractor workflow
               </li>
             </ul>
           </div>
           <div class="project-tech">
             <span class="tech-badge">FastAPI</span>
-            <span class="tech-badge">React</span>
             <span class="tech-badge">TypeScript</span>
             <span class="tech-badge">PostgreSQL</span>
             <span class="tech-badge">Whisper</span>
@@ -958,43 +1143,27 @@
             </div>
           </div>
           <p class="project-description">
-            AI-powered document intelligence platform. Upload PDFs, ask
-            questions in plain language, and get answers with cited source
-            passages, streamed token-by-token. Supports cross-document queries
-            via workspaces and includes a demo mode for instant access without
-            registering.
+            AI-powered document intelligence platform for asking questions across uploaded PDFs with cited answers
+            and cross-document retrieval.
           </p>
           <div class="project-features">
             <ul>
               <li>
-                Background PDF processing via ARQ + Redis: text extraction,
-                chunking, and OpenAI batch embedding generation
+                Background ingestion pipeline for extraction, chunking, and embedding generation
               </li>
               <li>
-                HNSW approximate nearest-neighbor search on pgvector
-                embeddings for fast retrieval
+                pgvector + HNSW retrieval for fast semantic search across documents
               </li>
               <li>
-                Workspaces for cross-document RAG queries across multiple PDFs
-                in a single prompt
-              </li>
-              <li>
-                Secure auth with httpOnly cookies, refresh token rotation, and
-                double-submit CSRF protection
-              </li>
-              <li>
-                Deployed on GCP with Terraform-managed infrastructure and
-                GitHub Actions CI/CD
+                Workspace-based RAG for querying multiple PDFs in a single prompt
               </li>
             </ul>
           </div>
           <div class="project-tech">
-            <span class="tech-badge">Python</span>
             <span class="tech-badge">FastAPI</span>
             <span class="tech-badge">PostgreSQL</span>
             <span class="tech-badge">pgvector</span>
             <span class="tech-badge">Next.js</span>
-            <span class="tech-badge">TypeScript</span>
             <span class="tech-badge">GCP</span>
             <span class="tech-badge">Terraform</span>
           </div>
@@ -1017,48 +1186,28 @@
             </div>
           </div>
           <p class="project-description">
-            Real-time multi-room chat application with WebSocket messaging,
-            cursor-based history pagination, room discovery and membership
-            controls, full-text message search, and Redis-backed unread
-            tracking.
+            Real-time multi-room chat application with persistent history, discovery, search, and unread state.
           </p>
           <div class="project-features">
             <ul>
               <li>
-                Real-time messaging, typing indicators, and online presence
-                via WebSockets
+                WebSocket messaging with typing indicators, presence, and reactions
               </li>
               <li>
-                Message reactions, editing, and soft deletion with preserved
-                history position
+                Cursor-based pagination and full-text search across message history
               </li>
               <li>
-                Multi-room discovery with join/leave workflows, room
-                descriptions, and membership-based access control
-              </li>
-              <li>
-                Infinite-scroll message history with cursor-based pagination
-              </li>
-              <li>
-                Full-text search with PostgreSQL tsvector + GIN indexing
-              </li>
-              <li>
-                Unread message counters cached in Redis with PostgreSQL
-                fallback
+                Redis-backed unread tracking with PostgreSQL fallback
               </li>
             </ul>
           </div>
           <div class="project-tech">
-            <span class="tech-badge">Python</span>
             <span class="tech-badge">FastAPI</span>
             <span class="tech-badge">WebSockets</span>
             <span class="tech-badge">PostgreSQL</span>
             <span class="tech-badge">Redis</span>
             <span class="tech-badge">React</span>
             <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Vite</span>
-            <span class="tech-badge">JWT</span>
-            <span class="tech-badge">Docker</span>
           </div>
         </div>
 
@@ -1080,42 +1229,27 @@
             </div>
           </div>
           <p class="project-description">
-            Full-stack task manager with JWT authentication, CRUD operations,
-            commenting, file uploads to S3, and email notifications. Includes
-            Redis caching, role-based task sharing, and AWS infrastructure
-            defined in Terraform.
+            Full-stack task manager focused on collaboration, permissions, uploads, notifications, and production-style
+            infrastructure.
           </p>
           <div class="project-features">
             <ul>
               <li>
-                Role-based task sharing with owner, editor, and viewer
-                permission levels
+                Role-based task sharing with owner, editor, and viewer permissions
               </li>
               <li>
-                File uploads to S3 with a pluggable storage abstraction for
-                local and cloud backends
+                File uploads and email notifications built into the task workflow
               </li>
               <li>
-                Email notifications via background tasks using Resend and AWS
-                SES
-              </li>
-              <li>
-                Activity feed logging all task changes with per-task audit
-                history
-              </li>
-              <li>
-                Redis caching and rate limiting; AWS infrastructure defined in
-                Terraform
+                Redis caching and Terraform-managed AWS infrastructure
               </li>
             </ul>
           </div>
           <div class="project-tech">
-            <span class="tech-badge">Python</span>
             <span class="tech-badge">FastAPI</span>
             <span class="tech-badge">PostgreSQL</span>
             <span class="tech-badge">Redis</span>
             <span class="tech-badge">React</span>
-            <span class="tech-badge">JWT</span>
             <span class="tech-badge">Docker</span>
             <span class="tech-badge">AWS</span>
           </div>
@@ -1124,69 +1258,58 @@
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
+  <!-- Closing: how I build, skills, opportunities -->
+  <section id="closing">
     <div class="container">
-      <div class="section-header">
-        <h2>Skills</h2>
+      <div class="closing-block">
+        <h2>How I Build</h2>
+        <p class="closing-prose">
+          I build from written specs, scoped issues, and small, reviewable pull requests. I use AI agents within that
+          workflow to speed up implementation and review, but changes still move through planning, verification, and
+          careful review before they merge.
+        </p>
       </div>
-      <div class="skills-list">
-        <div class="skill-row">
-          <span class="skill-label">Backend</span>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">SQLAlchemy</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">WebSockets</span>
+
+      <div class="closing-block">
+        <h2>Core Skills</h2>
+        <div class="selected-skills-rows">
+          <div class="selected-skill-row">
+            <span class="selected-skill-cat">Backend</span>
+            <span class="selected-skill-items">FastAPI · SQLAlchemy · REST APIs · WebSockets</span>
+          </div>
+          <div class="selected-skill-row">
+            <span class="selected-skill-cat">AI / Applied AI</span>
+            <span class="selected-skill-items">OpenAI API · Anthropic API · RAG · Speech-to-Text</span>
+          </div>
+          <div class="selected-skill-row">
+            <span class="selected-skill-cat">Infrastructure</span>
+            <span class="selected-skill-items">AWS · GCP · Terraform · Docker · GitHub Actions</span>
+          </div>
+          <div class="selected-skill-row">
+            <span class="selected-skill-cat">Frontend</span>
+            <span class="selected-skill-items">React · TypeScript · Next.js · Tailwind CSS</span>
           </div>
         </div>
-        <div class="skill-row">
-          <span class="skill-label">Databases</span>
-          <div class="skill-tags">
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Redis</span>
-          </div>
-        </div>
-        <div class="skill-row">
-          <span class="skill-label">AI</span>
-          <div class="skill-tags">
-            <span class="skill-tag">OpenAI API</span>
-            <span class="skill-tag">Anthropic API</span>
-            <span class="skill-tag">RAG</span>
-            <span class="skill-tag">pgvector</span>
-          </div>
-        </div>
-        <div class="skill-row">
-          <span class="skill-label">Infrastructure</span>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">GCP</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD with GitHub Actions</span>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">
-            Frontend
-            <span class="label-note">Working knowledge</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Next.js</span>
-            <span class="skill-tag">Tailwind CSS</span>
-          </div>
-        </div>
+      </div>
+
+      <div class="closing-block">
+        <h2>Interested in opportunities</h2>
+        <p class="closing-prose">
+          I'm currently seeking software engineering and web development internships in Cleveland or remote.
+        </p>
+        <p class="closing-links">
+          <a href="https://github.com/odysian" target="_blank" rel="noopener noreferrer">GitHub</a><span
+            class="closing-links-sep"> / </span><a href="mailto:c.colosimo@odysian.dev">Email</a><span
+            class="closing-links-sep"> / </span><a href="resume.pdf" target="_blank"
+            rel="noopener noreferrer">Resume</a>
+        </p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p class="footer-text">
+      <p class="footer-note">
         Deployed on
         <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>
         from
